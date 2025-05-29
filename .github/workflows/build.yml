@@ -1,8 +1,9 @@
 name: "Build and upload to Cachix"
 on:
-  push: main
+  push:
+    branches: [main]
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
