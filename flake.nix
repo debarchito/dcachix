@@ -10,8 +10,13 @@
       };
     in
     {
-      packages.${system}.blender = pkgs.blender.override {
-        cudaSupport = true;
+      packages.${system} = {
+        blender = pkgs.blender.override {
+          cudaSupport = true;
+        };
+        obs-studio = pkgs.obs-studio.override {
+          cudaSupport = true;
+        };
       };
     };
 }

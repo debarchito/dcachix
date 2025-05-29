@@ -1,7 +1,7 @@
 name: "Build and upload to Cachix"
 on:
   push:
-    branches: [main]
+    branches: [build]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +14,9 @@ jobs:
         with:
           name: debarchito
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build Blender with CUDA enabled
+      - name: Build Blender with CUDA support
         run: nix build .#blender
+      - name: Build OBS Studio with CUDA support
+        run: nix build .#obs-studio
       - name: Upload Blender to Cachix
         run: cachix push debarchito ./result
