@@ -1,7 +1,7 @@
 name: "Build and upload to Cachix"
 on:
   push:
-    branches: [build]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,5 +18,5 @@ jobs:
         run: nix build .#blender
       - name: Build OBS Studio with CUDA support
         run: nix build .#obs-studio
-      - name: Upload Blender to Cachix
+      - name: Upload artifacts to Cachix
         run: cachix push debarchito ./result
