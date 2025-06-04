@@ -4,19 +4,25 @@
     { nixpkgs, ... }:
     let
       system = "x86_64-linux";
+      overlay = final: prev: {
+        blender = prev.blender.override {
+          cudaSupport = true;
+        };
+        obs-studio = prev.obs-studio.override {
+          cudaSupport = true;
+        };
+      };
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [ overlay ];
       };
     in
     {
+      overlays.default = overlay;
       packages.${system} = {
-        blender = pkgs.blender.override {
-          cudaSupport = true;
-        };
-        obs-studio = pkgs.obs-studio.override {
-          cudaSupport = true;
-        };
+        blender = pkgs.blender;
+        obs-studio = pkgs.obs-studio;
       };
     };
 }

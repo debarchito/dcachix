@@ -1,17 +1,17 @@
-## What is this repo about?
+## 1. What is this repo about?
 
-This repo holds a Nix flake that builds packages I need with specific overrides
-and uploads them to my Cachix cache; saving my precious little laptop CPU and
-thermals.
+This repo builds and caches these packages with custom overrides:
 
-Currently, it builds:
-
-- Blender (CUDA support w/o breaking Vulkan experiments)
-- OBS Studio (CUDA support for hardware encoding i.e. NVENC)
+- **Blender** (CUDA support w/o breaking Vulkan experiments)
+- **OBS Studio** (CUDA support for hardware encoding i.e. NVENC)
 
 I only plan to support the latest version of these packages available in the
-`nixos-unstable` channel for `x86_64-linux`. I will not provide caches for any
+`nixos-unstable` channel for `x86_64-linux`. I will not guarantee caches for any
 old versions.
+
+## 2. Can I use it?
+
+Yes, you can, given you trust me enough.
 
 ## Cachix
 
@@ -27,14 +27,28 @@ nix.settings = {
 
 ## Flakes
 
+Here is an example `flake.nix`:
+
 ```nix
-# flake.nix
 {
-  inputs.debarchito-cachix.url = "github:debarchito/cachix";
-  outputs = { debarchito-cachix, ... }: {
-    # debarchito-cachix.packages.x86_64-linux.<pkg>;
-    # where pkg = blender | obs-studio
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    dcachix.url = "github:debarchito/cachix";
   };
+  outputs = { nixpkgs, dcachix, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [ dcachix.overlays.default ]
+    };
+  in
+    {
+      # Use "pkgs.blender" or "pkgs.obs-studio" as you usually would.
+      # If you don't want to use the overlay, you can always:
+      # dcachix.packages.${system}.<pkg-name>
+    };
 }
 ```
 
