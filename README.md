@@ -13,7 +13,7 @@ old versions.
 
 Yes, you can, given you trust me enough.
 
-## Cachix
+## 3. Cachix
 
 Add the Cachix substituter for binary caches:
 
@@ -25,7 +25,7 @@ nix.settings = {
 };
 ```
 
-## Flakes
+## 4. Flakes
 
 Here is an example `flake.nix`:
 
@@ -52,6 +52,6 @@ Here is an example `flake.nix`:
 }
 ```
 
-## License
+## 5. License
 
 [MIT](/LICENSE)
