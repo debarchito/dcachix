@@ -33,7 +33,7 @@ Here is an example `flake.nix`:
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    dcachix.url = "github:debarchito/cachix";
+    dcachix.url = "github:debarchito/dcachix";
   };
   outputs = { nixpkgs, dcachix, ... }:
   let
