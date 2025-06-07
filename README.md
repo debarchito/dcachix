@@ -54,4 +54,4 @@ Here is an example `flake.nix`:
 
 ## 5. License
 
-[MIT](/LICENSE)
+[Zlib](/LICENSE)
