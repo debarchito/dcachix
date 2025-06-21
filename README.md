@@ -52,6 +52,14 @@ Here is an example `flake.nix`:
 }
 ```
 
-## 5. License
+## 5. Run directly
+
+You can always run the binaries directly using:
+
+```nix
+nix run github:debarchito/dcachix#<pkg-name>
+```
+
+## 6. License
 
 [Zlib](/LICENSE)
