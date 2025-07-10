@@ -21,7 +21,7 @@ Add the Cachix substituter for binary caches:
 # configuration.nix
 nix.settings = {
   substituters = [ "https://debarchito.cachix.org" ];
-  trusted-public-keys = [ "debarchito.cachix.org-1:b9I9LSdMFockuXyfljPeoIcJtIVopf9rVkvkIG20PGg=" ];
+  trusted-public-keys = [ "debarchito.cachix.org-1:md/bk3JZDoFjVOa6bsIDqaY5hcSec4KPWn8q3PbpCl8=" ];
 };
 ```
 
