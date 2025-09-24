@@ -1,7 +1,13 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    jj = {
+      url = "github:jj-vcs/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
   outputs =
-    { nixpkgs, ... }:
+    { ... }@inputs:
     let
       system = "x86_64-linux";
       overlay = final: prev: {
@@ -11,8 +17,9 @@
         obs-studio = prev.obs-studio.override {
           cudaSupport = true;
         };
+        jujutsu = inputs.jj.packages.${system}.default;
       };
-      pkgs = import nixpkgs {
+      pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [ overlay ];
@@ -21,8 +28,7 @@
     {
       overlays.default = overlay;
       packages.${system} = {
-        blender = pkgs.blender;
-        obs-studio = pkgs.obs-studio;
+        inherit (pkgs) blender obs-studio jujutsu;
       };
     };
 }
