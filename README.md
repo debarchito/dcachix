@@ -4,6 +4,7 @@ This repo builds and caches these packages with custom overrides:
 
 - **Blender** (CUDA support w/o breaking Vulkan experiments)
 - **OBS Studio** (CUDA support for hardware encoding i.e. NVENC)
+- **Jujutsu VCS** (from [source](http://github.com/jj-vcs/jj))
 
 I only plan to support the latest version of these packages available in the
 `nixos-unstable` channel for `x86_64-linux`. I will not guarantee caches for any
