@@ -9,10 +9,6 @@
       url = "gitlab:lanastara_foss/starship-jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickemu = {
-      url = "github:quickemu-project/quickemu";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     { ... }@inputs:
@@ -27,7 +23,6 @@
         };
         jujutsu = inputs.jj.packages.${system}.default;
         starship-jj = inputs.starship-jj.packages.${system}.default;
-        quickemu = inputs.quickemu.packages.${system}.default;
       };
       pkgs = import inputs.nixpkgs {
         inherit system;
@@ -43,7 +38,6 @@
           obs-studio
           jujutsu
           starship-jj
-          quickemu
           ;
       };
     };

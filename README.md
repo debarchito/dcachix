@@ -7,7 +7,6 @@ This repo builds and caches these packages with optional custom overrides:
 - **Jujutsu VCS** (from [source](https://github.com/jj-vcs/jj)) +
   **starship-jj** (a jj extension for starship, from
   [source](https://gitlab.com/lanastara_foss/starship-jj))
-- **Quickemu** (from [source](https://github.com/quickemu-project/quickemu))
 
 I only plan to support the latest version of these packages available in the
 `nixos-unstable` channel for `x86_64-linux`. I will not guarantee caches for any
