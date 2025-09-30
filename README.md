@@ -1,6 +1,6 @@
 ## 1. What is this repo about?
 
-This repo builds and caches these packages with custom overrides:
+This repo builds and caches these packages with optional custom overrides:
 
 - **Blender** (CUDA support w/o breaking Vulkan experiments)
 - **OBS Studio** (CUDA support for hardware encoding i.e. NVENC)
