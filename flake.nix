@@ -5,6 +5,14 @@
       url = "github:jj-vcs/jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    starship-jj = {
+      url = "gitlab:lanastara_foss/starship-jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    quickemu = {
+      url = "github:quickemu-project/quickemu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     { ... }@inputs:
@@ -18,6 +26,8 @@
           cudaSupport = true;
         };
         jujutsu = inputs.jj.packages.${system}.default;
+        starship-jj = inputs.starship-jj.packages.${system}.default;
+        quickemu = inputs.quickemu.packages.${system}.default;
       };
       pkgs = import inputs.nixpkgs {
         inherit system;
@@ -28,7 +38,13 @@
     {
       overlays.default = overlay;
       packages.${system} = {
-        inherit (pkgs) blender obs-studio jujutsu;
+        inherit (pkgs)
+          blender
+          obs-studio
+          jujutsu
+          starship-jj
+          quickemu
+          ;
       };
     };
 }

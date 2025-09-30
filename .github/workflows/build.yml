@@ -20,5 +20,9 @@ jobs:
         run: nix build .#obs-studio
       - name: Build Jujutsu VCS
         run: nix build .#jujutsu
+      - name: Build starship-jj
+        run: nix build .#starship-jj
+      - name: Build Quickemu
+        run: nix build .#quickemu
       - name: Upload artifacts to Cachix
         run: cachix push debarchito ./result
