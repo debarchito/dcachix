@@ -1,10 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    jj = {
-      url = "github:jj-vcs/jj";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     starship-jj = {
       url = "gitlab:lanastara_foss/starship-jj";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +17,6 @@
         obs-studio = prev.obs-studio.override {
           cudaSupport = true;
         };
-        jujutsu = inputs.jj.packages.${system}.default;
         starship-jj = inputs.starship-jj.packages.${system}.default;
       };
       pkgs = import inputs.nixpkgs {
@@ -36,7 +31,6 @@
         inherit (pkgs)
           blender
           obs-studio
-          jujutsu
           starship-jj
           ;
       };

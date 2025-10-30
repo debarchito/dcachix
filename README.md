@@ -6,8 +6,7 @@ This repo builds and caches these packages with optional custom overrides:
   - `WARNING:` Blender build is disabled cause `cuda12.8-cuda_cudart-12.8.90` is
     marked as broken in nixpkgs upstream.
 - **OBS Studio** (CUDA support for hardware encoding i.e. NVENC)
-- **Jujutsu VCS** (from [source](https://github.com/jj-vcs/jj)) +
-  **starship-jj** (a jj extension for starship, from
+- **starship-jj** (a Jujutsu extension for starship, from
   [source](https://gitlab.com/lanastara_foss/starship-jj))
 
 I only plan to support the latest version of these packages available in the
