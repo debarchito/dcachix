@@ -45,11 +45,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1762111121,
-        "narHash": "sha256-4vhDuZ7OZaZmKKrnDpxLZZpGIJvAeMtK6FKLJYUtAdw=",
+        "lastModified": 1762363567,
+        "narHash": "sha256-YRqMDEtSMbitIMj+JLpheSz0pwEr0Rmy5mC7myl17xs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b3d51a0365f6695e7dd5cdf3e180604530ed33b4",
+        "rev": "ae814fd3904b621d8ab97418f1d0f2eb0d3716f4",
         "type": "github"
       },
       "original": {
@@ -92,11 +92,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1757479801,
-        "narHash": "sha256-HTkDZQJnlbv2LlBybpBTNh1Y3/M8RNeQuiked3JaLgI=",
+        "lastModified": 1762298046,
+        "narHash": "sha256-mF/LPdmwZdPAMXD8IE49hP1pmMYk7OI80NHXL8gA+fM=",
         "owner": "lanastara_foss",
         "repo": "starship-jj",
-        "rev": "04557921210b770faefb9ea7ee60152d61b03755",
+        "rev": "29373aa146c98c9524f9c131936d01db0fd65318",
         "type": "gitlab"
       },
       "original": {
