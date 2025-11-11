@@ -14,8 +14,8 @@ jobs:
         with:
           name: debarchito
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      # - name: Build Blender with CUDA support
-      #   run: nix build .#blender
+      - name: Build Blender with CUDA support
+        run: nix build .#blender
       - name: Build OBS Studio with CUDA support
         run: nix build .#obs-studio
       - name: Build starship-jj
