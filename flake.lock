@@ -92,11 +92,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1762298046,
-        "narHash": "sha256-mF/LPdmwZdPAMXD8IE49hP1pmMYk7OI80NHXL8gA+fM=",
+        "lastModified": 1763156536,
+        "narHash": "sha256-KYNDutr+2UGATpQu9oVrer4hh+eF4FynbcIvc4hH5qQ=",
         "owner": "lanastara_foss",
         "repo": "starship-jj",
-        "rev": "29373aa146c98c9524f9c131936d01db0fd65318",
+        "rev": "fa4f85602f93d4d02f85706d1c40adf023b91e27",
         "type": "gitlab"
       },
       "original": {
