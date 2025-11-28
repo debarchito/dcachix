@@ -2,20 +2,12 @@
 
 This repo builds and caches these packages with optional custom overrides:
 
-- **Blender** (CUDA support w/o breaking Vulkan experiments)
+- **Blender** (CUDA + OptiX support)
 - **OBS Studio** (CUDA support for hardware encoding i.e. NVENC)
-- **starship-jj** (a Jujutsu extension for starship, from
-  [source](https://gitlab.com/lanastara_foss/starship-jj))
 
-I only plan to support the latest version of these packages available in the
-`nixos-unstable` channel for `x86_64-linux`. I will not guarantee caches for any
-old versions.
+Caches are only available for `x86_64-linux`.
 
-## 2. Can I use it?
-
-Yes, you can, given you trust me enough.
-
-## 3. Cachix
+## 2. Cachix
 
 Add the Cachix substituter for binary caches:
 
@@ -27,7 +19,7 @@ nix.settings = {
 };
 ```
 
-## 4. Flakes
+## 3. Flakes
 
 Here is an example `flake.nix`:
 
@@ -42,7 +34,7 @@ Here is an example `flake.nix`:
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true;
+      config.allowUnfree = true; # As CUDA is unfree
       overlays = [ dcachix.overlays.default ]
     };
   in
@@ -54,7 +46,7 @@ Here is an example `flake.nix`:
 }
 ```
 
-## 5. Run directly
+## 4. Run directly
 
 You can always run the binaries directly using:
 
@@ -62,6 +54,6 @@ You can always run the binaries directly using:
 nix run github:debarchito/dcachix#<pkg-name>
 ```
 
-## 6. License
+## 5. License
 
-[Zlib](/LICENSE)
+This repository is licensed under the [Zlib](/LICENSE) license.
