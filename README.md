@@ -4,6 +4,7 @@ This repo builds and caches these packages with optional custom overrides:
 
 - **Blender** (CUDA + OptiX support)
 - **OBS Studio** (CUDA support for hardware encoding i.e. NVENC)
+- **starship-jj** (from [source](https://gitlab.com/lanastara_foss/starship-jj))
 
 Caches are only available for `x86_64-linux`.
 

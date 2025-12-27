@@ -1,5 +1,11 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    starship-jj = {
+      url = "gitlab:lanastara_foss/starship-jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
   outputs =
     { ... }@inputs:
     let
@@ -11,6 +17,7 @@
         obs-studio = prev.obs-studio.override {
           cudaSupport = true;
         };
+        starship-jj = inputs.starship-jj.packages.${system}.default;
       };
       pkgs = import inputs.nixpkgs {
         inherit system;
@@ -21,7 +28,7 @@
     {
       overlays.default = overlay;
       packages.${system} = {
-        inherit (pkgs) blender obs-studio;
+        inherit (pkgs) blender obs-studio starship-jj;
       };
     };
 }
